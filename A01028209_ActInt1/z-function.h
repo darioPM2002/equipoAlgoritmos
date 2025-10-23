@@ -3,47 +3,44 @@
 
 using namespace std;
 
-// Función Z para encontrar ocurrencias de un patrón en un texto
-void z(string main, string pattern = "")
+// Función Z para encontrar patrones en un texto, en el nuestro sólo imprime el primer indice donde lo encontró
+void z(const string& text, const string& pattern = "")
 {
-  string concat;
-  bool found = false;
-  vector<int> result;
-  result.push_back(0);
-  if (pattern == "")
-    concat = main;
-  else
-    concat = pattern + "$" + main;
 
-  for (int i = 0; i < concat.size(); i++)
-  {
+  //SÓLO SE PUEDE TRABAJAR SI LE MANDAMOS PATRON, SI NO FALSE
+  if (pattern.empty()) {
+    cout << "false" << endl;
+    return;
+  }
+
+  //CONCATENAACIÓN Y VECTOR Z LLENADO CON 0 INICIALMENTE
+  string concat = pattern + "$" + text;
+  vector<int> z(concat.size(), 0);
+
+
+
+
+  //REVISAMOS SI HAY COINCIDENCIAS ENTRE PATRÓN Y TEXTO PLANO
+  for (int i = 1; i < concat.size(); ++i) {
     int count = 0;
-    if (i == 0)
-      continue;
-    else
-    {
-      for (int j : concat)
-      {
-        if (concat[i + count] == j)
-          count++;
-        else
-        {
-          result.push_back(count);
-          break;
-        }
-      }
+    while (i + count < concat.size() && concat[count] == concat[i + count]) {
+      ++count;
     }
+    z[i] = count;
   }
 
-  for (int i = 0; i < result.size(); i++)
-  {
-    if (result[i] == pattern.size())
-    {
+  //IMPRIMIMOS EL PRIMER ÍNDICE DONDE SE ENCUENTRA EL PATRÓN, EN CASO DE QUE SE HAYA ENCONTRADO
+  bool found = false;
+  for (int i = 1; i < z.size(); ++i) {
+    if (z[i] == pattern.size()) {
       found = true;
-      cout << "true" << " " << i - pattern.size() << endl;
+
+      cout << "true" << " " << (i - pattern.size() - 1) << endl;
+      //CON ESTE RETRUN SÓLO IMPRIMIMOS LA PRIMER COINCIDENCIA
+      return;
     }
   }
-  if (!found){
+  if (!found) {
     cout << "false" << endl;
   }
 }
