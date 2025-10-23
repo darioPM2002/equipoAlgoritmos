@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Función Z para encontrar ocurrencias de un patrón en un texto
 void z(string main, string pattern = "")
 {
   string concat;
@@ -15,19 +16,15 @@ void z(string main, string pattern = "")
     concat = pattern + "$" + main;
 
   for (int i = 0; i < concat.size(); i++)
-
   {
-
     int count = 0;
     if (i == 0)
       continue;
-
     else
     {
       for (int j : concat)
       {
         if (concat[i + count] == j)
-
           count++;
         else
         {
@@ -44,8 +41,10 @@ void z(string main, string pattern = "")
     {
       found = true;
       cout << "true" << " " << i - pattern.size() << endl;
+      break;
     }
   }
-  if (!found)
+  if (!found){
     cout << "false" << endl;
+  }
 }

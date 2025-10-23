@@ -4,12 +4,14 @@
 
 using namespace std;
 
-#include "z-function.cpp"
-#include "Manacher.cpp"
+#include "z-function.h"
+#include "Manacher.h"
 
 // Valentina Castilla Melgoza A01028209
 // Fausto Izquierdo
 // Darío Peña
+// Actividad Integradora 1
+// 23 de Octubre del 2025
 
 // Función para leer el contenido de un archivo
 string readFromFile(const string& filename) {
@@ -25,6 +27,7 @@ string readFromFile(const string& filename) {
     }
     return content;
 }
+
 
 int main() {
 

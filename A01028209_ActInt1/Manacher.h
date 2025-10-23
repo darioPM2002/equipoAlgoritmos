@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Algoritmo de Manacher para encontrar el palíndromo más largo en una cadena
 void manacher(string s)
 {
   string ms = "$";
