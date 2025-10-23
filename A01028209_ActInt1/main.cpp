@@ -23,22 +23,19 @@ string readFromFile(const string &filename)
     {
         while (getline(file, line))
         {
-            content += line + "\n"; // Agregar salto de línea
+            // Eliminar espacios de cada línea
+            line.erase(remove(line.begin(), line.end(), ' '), line.end());
+            content += line;
         }
         file.close();
-        // Eliminar el último salto de línea extra
-        if (!content.empty() && content.back() == '\n')
-        {
-            content.pop_back();
-        }
     }
     else
     {
         cout << "Error: Could not open file " << filename << endl;
     }
+
     return content;
 }
-
 int main()
 {
 
@@ -49,7 +46,7 @@ int main()
     string m2 = readFromFile("mcode2.txt");
     string m3 = readFromFile("mcode3.txt");
 
-    // La complejidad del algoritmo manacher es de O(n) porque recorre la cadena una sola vez
+   
     cout << "Parte 1" << endl;
 
     cout << "T1-M1 -> ";
@@ -66,7 +63,7 @@ int main()
     cout << "T2-M3 -> ";
     z(t2, m3);
 
-    // La complejidad del algoritmo manacher es de O(n) porque igual recorre la cadena una sola vez
+
     cout << endl
          << "Parte 2" << endl;
     manacher(t1);
