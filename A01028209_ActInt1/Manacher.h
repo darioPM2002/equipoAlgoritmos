@@ -41,16 +41,22 @@ void manacher(string s)
       counter = 0;
     }
   }
-  // Obtener valores maximos del vector result (palindromo mas largo)
+  // Obtener valores mayores del vector result (palindromo mas largo)
   int maxLength = 0;
-  int posMax = 0;
+  vector<int> posMax;
   for (int i = 0; i < result.size(); i++) {
     if (result[i] > maxLength) {
       maxLength = result[i];
-      posMax = i;
-    }
+      posMax.clear();
+      posMax.push_back(i);
+    } else if (result[i] == maxLength) {
+      posMax.push_back(i);
+    } 
   }
-  int inicioPal = ((posMax-maxLength)/2) + 1;
-  int finalPal = (inicioPal + maxLength) - 1;
-  cout << inicioPal << " " << finalPal << endl;
+  for (int i = 0; i < posMax.size(); i++) {
+    int inicioPal = (posMax[i] - maxLength) / 2;
+    int finalPal = (posMax[i] + maxLength) / 2 - 1;
+
+    cout << (inicioPal + 1) << " " << (finalPal + 1) << endl;
+  }
 }

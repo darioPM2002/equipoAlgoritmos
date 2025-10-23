@@ -41,7 +41,6 @@ void z(string main, string pattern = "")
     {
       found = true;
       cout << "true" << " " << i - pattern.size() << endl;
-      break;
     }
   }
   if (!found){
