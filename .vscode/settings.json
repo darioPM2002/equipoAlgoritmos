@@ -108,6 +108,11 @@
     "algorithm": "cpp",
     "type_traits": "cpp",
     "xstring": "cpp",
-    "xutility": "cpp"
+    "xutility": "cpp",
+    "fstream": "cpp",
+    "iomanip": "cpp",
+    "__tree": "cpp",
+    "map": "cpp",
+    "set": "cpp"
   }
 }
